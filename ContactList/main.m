@@ -10,18 +10,21 @@
 #import "InputCollector.h"
 #import "Contact.h"
 #import "ContactList.h"
+#import "History.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         ContactList *contactList = [[ContactList alloc] initWithMutArray];
         InputCollector *inputCollector = [[InputCollector alloc] init];
+        History *history = [[History alloc] initWithMutArray];
         NSString *command;
         BOOL isRunning = YES;
         
         while(isRunning == YES) {
             [inputCollector printMenu];
             command = [inputCollector inputForPrompt:@"Enter command: "];
+            [history addCommandToHistory:command];
             
             if ([command isEqualToString:@"new"]) {
                 Contact *contact = [[Contact alloc] init];
@@ -45,6 +48,8 @@ int main(int argc, const char * argv[]) {
             } else if ([command isEqualToString:@"find"]) {
                 NSString *searchItem = [inputCollector inputForPrompt:@"Enter contact first name: "];
                 [contactList searchList:searchItem];
+            } else if ([command isEqualToString:@"history"]) {
+                [history printHistory];
             } else {
                 NSLog(@"Invalid command. Please try again.");
                 NSLog(@"\n\n");

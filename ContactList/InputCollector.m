@@ -16,6 +16,7 @@
     NSLog(@"list - List all contacts");
     NSLog(@"show - Show contact's details");
     NSLog(@"find - Find contact by name");
+    NSLog(@"history - Show the last three commands");
     NSLog(@"quit - Exit Application");
     
 }

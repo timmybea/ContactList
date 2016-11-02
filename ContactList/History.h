@@ -10,4 +10,8 @@
 
 @interface History : NSObject
 
+-(id) initWithMutArray;
+-(void)addCommandToHistory:(NSString*)command;
+-(void)printHistory;
+
 @end
