@@ -11,11 +11,11 @@
 
 @interface ContactList : NSObject
 
-@property (nonatomic, strong) NSMutableArray *list;
-
 -(id) initWithMutArray;
 -(void)printList;
 -(void)printContact:(int)idNumber;
 -(void)searchList:(NSString*)name;
+-(void)addObjectToArray:(Contact*)contact;
+-(int)contactListLength;
 
 @end

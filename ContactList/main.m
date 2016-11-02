@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
                 contact.lastName = [inputCollector inputForPrompt:@"Enter last name: "];
                 contact.phoneNumber = [inputCollector inputForPrompt:@"Enter phonenumber: "];
                 contact.email = [inputCollector inputForPrompt:@"Enter email: "];
-                [contactList.list addObject:contact];
+                [contactList addObjectToArray:contact];
             } else if ([command isEqualToString:@"list"]) {
                 [contactList printList];
             } else if ([command isEqualToString:@"quit"]) {
@@ -37,7 +37,7 @@ int main(int argc, const char * argv[]) {
                 isRunning = NO;
             } else if ([command isEqualToString:@"show"]) {
                 NSString *idNumber = [inputCollector inputForPrompt:@"Enter contact id: "];
-                if (idNumber.intValue > contactList.list.count) {
+                if (idNumber.intValue > [contactList contactListLength]) {
                     NSLog(@"Contact not found");
                 } else {
                     [contactList printContact:idNumber.intValue];

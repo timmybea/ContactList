@@ -8,11 +8,11 @@
 
 #import "ContactList.h"
 
-//@interface ContactList ()
-//
-//@property
-//
-//@end
+@interface ContactList ()
+
+@property (nonatomic, strong) NSMutableArray *list;
+
+@end
 
 @implementation ContactList
 
@@ -41,10 +41,20 @@
     for (int i = 0; i < self.list.count; i++) {
         if([name isEqualToString:[[self.list objectAtIndex:i] name]]){
             NSLog(@"The contact %@ is located at index %d", name, i);
+            NSLog(@"\n\n");
             break;
         }
     }
     NSLog(@"Contact not in list.");
+    NSLog(@"\n\n");
+}
+
+-(void)addObjectToArray:(Contact*)contact {
+    [self.list addObject:contact];
+}
+
+-(int)contactListLength {
+    return (int)self.list.count;
 }
 
 
